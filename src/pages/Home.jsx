@@ -234,7 +234,7 @@ export function Featured() {
   )
 }
 
-export function ListOfAvailableClasses(){
+export function ListOfAvailableClasses(){ 
   return(
     <section className={`flex items-center justify-center`}>
       <div className={`container w-full h-96 bg-green-800`}>
