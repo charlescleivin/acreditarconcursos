@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
 import { useEffect } from 'react'
 import { useBrandIdentityContext } from '../contexts/BrandIdentityContext'
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 export function Section({children}){
   return(
@@ -103,14 +105,148 @@ export function HeroSection({data}) {
   )
 }
 
+export function QuestionAnswerSection ({data}) {
+  return(
+    <Section>
+    <div className={`text-lg text-gray-100 grid grid-cols-1 gap-12 py-8`}>
+      <div className={`text-4xl font-bold text-center`}>{data.question1}</div>
+      <div className={`font-light`}>{data.answer1}</div>
+      <div className={`text-4xl font-bold text-center`}>{data.question2}</div>
+      <div className={`font-light`}>{data.answer2}</div>
+      <div className={`text-4xl font-bold text-center`}>{data.question3}</div>
+      <div className={`font-light`}>{data.answer3.answer}</div>
+      <div className={`font-light`}>
+          {data.answer3.answerList.map((answer) => {
+            return(
+              <div key={answer}>
+                {answer}
+              </div>
+                     
+                     )})}
+      </div>
+
+    </div> 
+    </Section>
+  )
+}
+
+
+export function AprovadosSection({data}) {
+  const settings = {  
+    infinite: true,
+    autoplaySpeed: 0,
+    autoplay:true,
+    speed: 2000,
+    centerMode:true,
+    slidesToShow: window.innerWidth<600 ? 1 : 5,
+    slidesToScroll: 1
+  };
+  return (
+    <Section>
+      <div className={`w-full grid grid-cols-1 justify-items-center gap-8 max-w-screen overflow-x-hidden`}>
+          <div className={`text-4xl text-center font-bold text-gray-100`}>{data.title}</div>
+          <div className={`w-full`}>
+                <Slider {...settings}>
+                        {data.listaDeAprovados.map((aprovado) => {
+                          return(
+                              aprovado.id !== 13 &&
+                              <div key={aprovado.id}>
+                                <img src={aprovado.imageUrl} alt=''/> 
+                              </div>
+                          )
+                        })}
+                </Slider>
+
+          </div>
+          <div className={`rounded-lg max-w-3xl relative  justify-items-center w-full overflow-hidden grid grid-cols-1 lg:grid-cols-2 bg-custom-a`}>
+
+                  <div className={`absolute border border-custom-d p-2 rounded-lg top-2 right-2 grid grid-flow-col gap-4 place-items-center justify-items-center`}>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-custom-d" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                      </svg> 
+                      <div className={`text-custom-d`}>Aluno Destaque</div>
+                  </div>
+
+                  <div>
+                    <img className={`lg:rounded-br-lg`} src={data.listaDeAprovados[12].imageUrl} alt='' />
+                  </div>
+
+                  <div className={`lg:p-8 max-h-96 p-4 w-full bg-gray-100 grid grid-cols-1 place-items-center justify-items-center rounded-b-lg lg:rounded-r-lg lg:rounded-bl-none gap-2`}>                  
+                            <div className={`text-4xl font-bold text-custom-a`}>{data.aprovadoDestaque.aluno}</div>   
+                            <div className={`grid grid-cols-1 gap-4 `}>
+                                
+                                  {data.aprovadoDestaque.aprovacoes.map(
+                                    (aprovacao) => {
+                                        return(
+                                          <div key={aprovacao.id}>
+                                              <div className={`text-4xl border-l-2 border-custom-d pl-6 font-bold text-custom-a`}>
+                                                  {aprovacao.titulo}
+                                              </div>
+                                          </div> 
+                                        )
+                                    }
+                                  )}     
+                            </div>       
+                              </div>
+
+                  </div> 
+
+      </div>
+    </Section>
+  )
+}
+
+
+export function AboutSection({data, logo}) {
+  return (
+    <Section>
+      <div className={`text-gray-100 grid grid-cols-1 place-items-center gap-12 justify-center`}>
+        <div className={`text-4xl text-center font-bold`}>{data.title}</div>
+
+   <div className={``}>
+      <img src={logo} alt='' />
+   </div>
+
+   <div className={`grid grid-cols-1 gap-4 bg-gray-100 text-custom-a p-4 rounded-lg`}>
+          <div className={`text-2xl border-l border-custom-d pl-4 flex items-center justify-start gap-2`}>
+            {data.numeroDeHoras}
+            {data.descricaoDasHoras}
+          </div>
+          <div className={` text-2xl border-l border-custom-d pl-4`}>{data.localizacao}</div>
+          {data.outrasVantagens.map(
+            (vantagem) => {
+            return(
+              <div className={`text-2xl border-l border-custom-d pl-4`} key={vantagem}>{vantagem}</div>
+            )
+            }
+          )}
+   </div>
+
+      <div className={`text-4xl text-center font-bold`}>{data.diferenciaisTitle}</div>
+      <div className={`grid grid-cols-1 gap-2`}>
+          {data.diferenciais.map(
+            (diferencial) => {      
+              return(
+                <div className={`border-l border-custom-d pl-4 text-2xl font-bold`} key={diferencial}>{diferencial}</div>
+              )    
+            }
+          )}
+      </div>
+  
+      </div>
+    </Section>
+  )
+}
+
+
 export default function Home() {
 
-  const {Logo6,Logo1, businessInformation} = useBrandIdentityContext()
+  const {logos,aprovados, businessInformation} = useBrandIdentityContext()
 
   const [homePageData,] = useState({
     heroSection:{
-      logo1: Logo1,
-      logo2: Logo6,
+      logo1: logos[0].imageUrl,	
+      logo2: logos[5].imageUrl,
       comoSeInscrever: <span>Como se inscrever: Preencha o formulário nesta página.</span>,
       headline1:<h1>Conquiste sua estabilidade financeira!</h1>,
       headline2: <h2> Seja um Sargento das Forças Armadas </h2>,
@@ -141,27 +277,33 @@ export default function Home() {
   
     },
     aprovadosSection:{
-      title: <span>Aprovados</span>,
-      listaDeAprovados:[
+      title: <span>Seja você também um de muitos aprovados</span>,
+      listaDeAprovados:aprovados,
+      aprovadoDestaque:
         {
           aluno: <span>João Pedro Carrascosa</span>,
           aprovacoes: [
-            <span>7° Lugar na EEAR-CFS</span>,
-            <span>EFOMM</span>,
+            {
+              id:0,
+              titulo:<span>7° Lugar na EEAR-CFS</span>
+            },
+            {
+              id:1,
+              titulo:<span>EFOMM</span>
+            },
           ]
-        },
-
-      ]
+        },      
     },
     aboutSection:{
       title: <span>Sobre o nosso Curso</span>,
-      numeroDeHoras: <span>312</span>,
+      numeroDeHoras: <span>São 312</span>,
       descricaoDasHoras: <span>horas de aulas presenciais.</span>,
-      localizacao: <span>Vila da Penha</span>,
+      localizacao: <span>Localização: Vila da Penha</span>,
       outrasVantagens: [
           <span> Trabalhamos teoria e exercícios</span>,
           <span> Aplicamos todo o conteúdo do edital. </span>
       ],     
+      diferenciaisTitle: <span>Nossos Diferenciais</span>,
       diferenciais: [
         <span>Curso de alto rendimento</span>,
         <span>Professores especializados</span>,
@@ -220,8 +362,11 @@ export default function Home() {
   
 
   return (
-    <div className={`bg-custom-a grid grid-cols-1 gap-6 place-items-center justify-items-center`}>
+    <div className={`bg-custom-a py-8 p-4 grid grid-cols-1 gap-6 place-items-center justify-items-center`}>
        <HeroSection data={homePageData.heroSection}/>
+       <QuestionAnswerSection data={homePageData.questionAnswerSection}/>
+       <AprovadosSection data={homePageData.aprovadosSection}/>
+       <AboutSection logo={logos[4].imageUrl} data={homePageData.aboutSection}/>
     </div>
   )
 }

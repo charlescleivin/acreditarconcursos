@@ -8,6 +8,19 @@ import Logo6 from '../assets/images/logo (6).png'
 import Logo7 from '../assets/images/logo (7).png'
 import Logo8 from '../assets/images/logo (8).png'
 import Logo9 from '../assets/images/logo (9).png'
+import Aprovado1 from '../assets/images/aprovado (1).jpeg'
+import Aprovado2 from '../assets/images/aprovado (2).jpeg'
+import Aprovado3 from '../assets/images/aprovado (3).jpeg'
+import Aprovado4 from '../assets/images/aprovado (4).jpeg'
+import Aprovado5 from '../assets/images/aprovado (5).jpeg'
+import Aprovado6 from '../assets/images/aprovado (6).jpeg'
+import Aprovado7 from '../assets/images/aprovado (7).jpeg'
+import Aprovado8 from '../assets/images/aprovado (8).jpeg'
+import Aprovado9 from '../assets/images/aprovado (9).jpeg'
+import Aprovado10 from '../assets/images/aprovado (10).jpeg'
+import Aprovado11 from '../assets/images/aprovado (11).jpeg'
+import Aprovado12 from '../assets/images/aprovado (12).jpeg'
+import Aprovado13 from '../assets/images/WhatsApp Image 2022-05-04 at 15.43.55.jpeg'
 
 const BrandIdentityContext = createContext()
 
@@ -25,6 +38,34 @@ export const BrandIdentityContextProvider = ({children}) => {
   // for example, "brandColors.a" is the same as in tailwind "custom-a"
   // so bg-custom-a will get the color brandColors.a
 
+  const [aprovados] = useState([
+  {id:1, imageUrl:Aprovado1},
+  {id:2, imageUrl:Aprovado2},
+  {id:3, imageUrl:Aprovado3},
+  {id:4, imageUrl:Aprovado4},
+  {id:5, imageUrl:Aprovado5},
+  {id:6, imageUrl:Aprovado6},
+  {id:7, imageUrl:Aprovado7},
+  {id:8, imageUrl:Aprovado8},
+  {id:9, imageUrl:Aprovado9},
+  {id:10, imageUrl:Aprovado10},
+  {id:11, imageUrl:Aprovado11},
+  {id:12, imageUrl:Aprovado12},
+  {id:13, imageUrl:Aprovado13},
+  ])
+
+  const [logos] = useState([
+    { id: 1, imageUrl: Logo1 },  
+    { id: 2, imageUrl: Logo2 },
+    { id: 3, imageUrl: Logo3 },
+    { id: 4, imageUrl: Logo4 },
+    { id: 5, imageUrl: Logo5 },
+    { id: 6, imageUrl: Logo6 },
+    { id: 7, imageUrl: Logo7 },
+    { id: 8, imageUrl: Logo8 },
+    { id: 9, imageUrl: Logo9 }
+  ])
+
   const [businessInformation] = useState({
     businessName: 'Acreditar Concursos',
     address: 'Avenida Meriti, 2029, 2º andar - Vila da Penha',
@@ -41,15 +82,8 @@ export const BrandIdentityContextProvider = ({children}) => {
   const value={
       brandColors,
       businessInformation,
-      Logo1,
-      Logo2,
-      Logo3,
-      Logo4,
-      Logo5,
-      Logo6,
-      Logo7,
-      Logo8,
-      Logo9,
+      aprovados,
+      logos,
   }
 
     return(
