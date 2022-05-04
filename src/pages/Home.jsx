@@ -79,9 +79,6 @@ export function HeroSection({data}) {
                                 <span className="subfield yearfield"><input className="datepart required" type="text" pattern="[0-9]*" defaultValue="" placeholder="YYYY" size="4" maxLength="4" name="MMERGE5[year]" id="mce-MMERGE5-year" /></span>
                                   <br/>  <span className="small-meta nowrap">( dd / mm / yyyy )</span>
                               </div>
-                            </div><div className="mc-field-group input-group">
-                                <strong>Horário Desejado  <span className="asterisk">*</span>
-                            </strong>                          
                             </div>
                               <div id="mce-responses" className="clear foot">
                                 <div className="response" id="mce-error-response" style={{display:'none'}}></div>
