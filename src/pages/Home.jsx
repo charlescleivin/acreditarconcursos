@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useEffect } from 'react'
 import { useBrandIdentityContext } from '../contexts/BrandIdentityContext'
-import gsap from 'gsap'
+
 
 export function Section({children}){
   return(
@@ -12,6 +12,9 @@ export function Section({children}){
 }
 
 export function HeroSection({data}) {
+
+
+
   return (
     <Section>
       <div className={`lg:p-0 p-4 grid grid-cols-1 lg:grid-cols-2 gap-4 place-items-center justify-items-center pt-6`}>
@@ -102,13 +105,13 @@ export function HeroSection({data}) {
 
 export default function Home() {
 
-  const {brandColors, Logo6,Logo1, businessInformation} = useBrandIdentityContext()
+  const {Logo6,Logo1, businessInformation} = useBrandIdentityContext()
 
-  const [homePageData, sethomePageData] = useState({
+  const [homePageData,] = useState({
     heroSection:{
       logo1: Logo1,
       logo2: Logo6,
-      comoSeInscrever: <span>Como se inscrever: Preencha o formulário abaixo.</span>,
+      comoSeInscrever: <span>Como se inscrever: Preencha o formulário nesta página.</span>,
       headline1:<h1>Conquiste sua estabilidade financeira!</h1>,
       headline2: <h2> Seja um Sargento das Forças Armadas </h2>,
       headline3: <h3> Ganhe até 100% de bolsa no curso que vai te deixar mais próximo da Farda</h3>,
