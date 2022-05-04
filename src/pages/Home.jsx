@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { useEffect } from 'react'
 import { useBrandIdentityContext } from '../contexts/BrandIdentityContext'
+import gsap from 'gsap'
 
 export function Section({children}){
   return(
