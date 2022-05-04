@@ -81,11 +81,7 @@ export function HeroSection({data}) {
                               </div>
                             </div><div className="mc-field-group input-group">
                                 <strong>Horário Desejado  <span className="asterisk">*</span>
-                            </strong>
-                                <ul><li><input type="radio" defaultValue="Manhã" name="MMERGE2" id="mce-MMERGE2-0"/><label htmlFor="mce-MMERGE2-0">Manhã</label></li>
-                            <li><input type="radio" defaultValue="Tarde" name="MMERGE2" id="mce-MMERGE2-1"/><label htmlFor="mce-MMERGE2-1">Tarde</label></li>
-                            <li><input type="radio" defaultValue="Noite" name="MMERGE2" id="mce-MMERGE2-2"/><label htmlFor="mce-MMERGE2-2">Noite</label></li>
-                            </ul>
+                            </strong>                          
                             </div>
                               <div id="mce-responses" className="clear foot">
                                 <div className="response" id="mce-error-response" style={{display:'none'}}></div>
@@ -258,7 +254,7 @@ export default function Home() {
     questionAnswerSection:{
       question1: <h2>Como vai funcionar o Bolsão? 
       </h2>,
-      answer1: <span>A prova será feita de forma online. Você pode ganhar de 100% a 20% de bolsa para se preparar para o concurso da ESA E EEAR.
+      answer1: <span> A prova será feita na Unidade de Vila da Penha. Às 9h30 ou às 13h30. Você pode ganhar de 100% a 20% de bolsa para se preparar para o concurso da ESA E EEAR. Você pode ganhar de 100% a 20% de bolsa para se preparar para o concurso da ESA E EEAR.
       </span>,
       question2: <h2>Como será a prova?</h2>,
       answer2: <span>A prova terá 20 questões. 
@@ -271,7 +267,6 @@ export default function Home() {
             <span>Maior idade</span>,
             <span>Quantidade de acertos em Português</span>,
             <span>Quantidade de acertos em Matemática</span>,
-            <span>Quem enviou o cartão-resposta mais rápido</span>,
         ]
         }
   
