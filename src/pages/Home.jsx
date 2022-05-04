@@ -46,7 +46,7 @@ export function HeroSection({data}) {
 
           <div className={`w-72 bg-gray-100 p-6 rounded-lg grid grid-cols-1 place-items-center justify-items-center`} id="mc_embed_signup">
               
-              <form action="https://gmail.us14.list-manage.com/subscribe/post?u=43262b3daf42f8edc076605b3&amp;id=ceb595b926" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" novalidate>
+              <form action="https://gmail.us14.list-manage.com/subscribe/post?u=43262b3daf42f8edc076605b3&amp;id=ceb595b926" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
                     
                     <div className={`grid grid-cols-1 gap-4 place-items-center justify-items-start`} id="mc_embed_signup_scroll">
                               
@@ -74,17 +74,17 @@ export function HeroSection({data}) {
                               <label for="mce-MMERGE5-month">Data de Nascimento  <span className="asterisk">*</span>
                             </label><br/>
                               <div className="datefield ">
-                                <span className="subfield dayfield"><input className="datepart required" type="text" pattern="[0-9]*" defaultValue="" placeholder="DD" size="2" maxlength="2" name="MMERGE5[day]" id="mce-MMERGE5-day" /></span> / 
-                                    <span className="subfield monthfield"><input className="datepart required" type="text" pattern="[0-9]*" defaultValue="" placeholder="MM" size="2" maxlength="2" name="MMERGE5[month]" id="mce-MMERGE5-month" /></span> / 
-                                <span className="subfield yearfield"><input className="datepart required" type="text" pattern="[0-9]*" defaultValue="" placeholder="YYYY" size="4" maxlength="4" name="MMERGE5[year]" id="mce-MMERGE5-year" /></span>
+                                <span className="subfield dayfield"><input className="datepart required" type="text" pattern="[0-9]*" defaultValue="" placeholder="DD" size="2" maxLength="2" name="MMERGE5[day]" id="mce-MMERGE5-day" /></span> / 
+                                    <span className="subfield monthfield"><input className="datepart required" type="text" pattern="[0-9]*" defaultValue="" placeholder="MM" size="2" maxLength="2" name="MMERGE5[month]" id="mce-MMERGE5-month" /></span> / 
+                                <span className="subfield yearfield"><input className="datepart required" type="text" pattern="[0-9]*" defaultValue="" placeholder="YYYY" size="4" maxLength="4" name="MMERGE5[year]" id="mce-MMERGE5-year" /></span>
                                   <br/>  <span className="small-meta nowrap">( dd / mm / yyyy )</span>
                               </div>
                             </div><div className="mc-field-group input-group">
                                 <strong>Horário Desejado  <span className="asterisk">*</span>
                             </strong>
-                                <ul><li><input type="radio" defaultValue="Manhã" name="MMERGE2" id="mce-MMERGE2-0"/><label for="mce-MMERGE2-0">Manhã</label></li>
-                            <li><input type="radio" defaultValue="Tarde" name="MMERGE2" id="mce-MMERGE2-1"/><label for="mce-MMERGE2-1">Tarde</label></li>
-                            <li><input type="radio" defaultValue="Noite" name="MMERGE2" id="mce-MMERGE2-2"/><label for="mce-MMERGE2-2">Noite</label></li>
+                                <ul><li><input type="radio" defaultValue="Manhã" name="MMERGE2" id="mce-MMERGE2-0"/><label htmlFor="mce-MMERGE2-0">Manhã</label></li>
+                            <li><input type="radio" defaultValue="Tarde" name="MMERGE2" id="mce-MMERGE2-1"/><label htmlFor="mce-MMERGE2-1">Tarde</label></li>
+                            <li><input type="radio" defaultValue="Noite" name="MMERGE2" id="mce-MMERGE2-2"/><label htmlFor="mce-MMERGE2-2">Noite</label></li>
                             </ul>
                             </div>
                               <div id="mce-responses" className="clear foot">
@@ -116,9 +116,9 @@ export function QuestionAnswerSection ({data}) {
       <div className={`text-4xl font-bold text-center`}>{data.question3}</div>
       <div className={`font-light`}>{data.answer3.answer}</div>
       <div className={`font-light`}>
-          {data.answer3.answerList.map((answer) => {
+          {data.answer3.answerList.map((answer,index) => {
             return(
-              <div key={answer}>
+              <div key={index}>
                 {answer}
               </div>
                      
@@ -214,9 +214,9 @@ export function AboutSection({data, logo}) {
           </div>
           <div className={` text-2xl border-l border-custom-d pl-4`}>{data.localizacao}</div>
           {data.outrasVantagens.map(
-            (vantagem) => {
+            (vantagem,index) => {
             return(
-              <div className={`text-2xl border-l border-custom-d pl-4`} key={vantagem}>{vantagem}</div>
+              <div className={`text-2xl border-l border-custom-d pl-4`} key={index}>{vantagem}</div>
             )
             }
           )}
@@ -225,9 +225,9 @@ export function AboutSection({data, logo}) {
       <div className={`text-4xl text-center font-bold`}>{data.diferenciaisTitle}</div>
       <div className={`grid grid-cols-1 gap-2`}>
           {data.diferenciais.map(
-            (diferencial) => {      
+            (diferencial, index) => {      
               return(
-                <div className={`border-l border-custom-d pl-4 text-2xl font-bold`} key={diferencial}>{diferencial}</div>
+                <div className={`border-l border-custom-d pl-4 text-2xl font-bold`} key={index}>{diferencial}</div>
               )    
             }
           )}
